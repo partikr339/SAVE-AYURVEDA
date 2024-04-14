@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>saveayurveda</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+    :root {
+        --primary-color: #006633;
+        --secondary-color: #336633;
+        --light-color: #f2f2f2;
+        --dark-color: #333;
+        --shadow-color: rgba(0, 0, 0, 0.1);
+    }
+
+    body {
+        font-family: 'Roboto', sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+
+    header {
+        background-color: var(--primary-color);
+        color: white;
+        padding: 1rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0 2px 4px var(--shadow-color);
+    }
+
+    header h1 {
+        margin: 0;
+    }
+
+    nav {
+        background-color: var(--secondary-color);
+        color: white;
+        display: flex;
+        justify-content: space-around;
+        padding: 1rem;
+        box-shadow: 0 2px 4px var(--shadow-color);
+
+    }
+
+    nav ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+    }
+
+    nav li {
+        margin: 0 1rem;
+    }
+
+    nav a {
+        color: white;
+        text-decoration: none;
+        padding: 0.5rem 1rem;
+        border-radius: 4px;
+        transition: background-color 0.3s ease;
+    }
+
+    nav a:hover {
+        background-color: var(--light-color);
+        color: var(--dark-color);
+    }
+
+    main {
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    main section {
+        margin-bottom: 2rem;
+        width: 100%;
+        max-width: 600px;
+        text-align: center;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    form label {
+        margin-bottom: 0.5rem;
+        font-weight: 500;
+    }
+
+    form input,
+    form button {
+        margin-bottom: 1rem;
+        padding: 0.5rem;
+        border: none;
+        border-radius: 4px;
+        background-color: var(--light-color);
+        font-size: 1rem;
+        font-weight: 400;
+        width: 100%;
+    }
+
+    form input:focus,
+    form button:focus {
+        outline: none;
+        box-shadow: 0 0 2px 1px var(--primary-color);
+    }
+
+    form button {
+        cursor: pointer;
+        background-color: var(--primary-color);
+        color: white;
+        transition: background-color 0.3s ease;
+    }
+
+    form button:hover {
+        background-color: var(--dark-color);
+    }
+
+    footer {
+        background-color: var(--secondary-color);
+        color: white;
+        text-align: center;
+        padding: 1rem;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        box-shadow: 0 2px 4px var(--shadow-color);
+    }
+
+    .container {
+        max-width: 500px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    .video-consultation-btn {
+        background-color: #006633;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .video-consultation-btn:hover {
+        background-color: #00331a;
+    }
+    .sub{
+        width: 30%;
+        margin: auto;
+
+    }
+    footer{
+        margin: auto;
+    }
+    .foot{
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        margin: auto;
+        
+    }
+    .foot:hover{
+        color: greenyellow;
+    }
+    .left img{
+        width: 74px;
+        display: inline-block;
+        left: 34px;
+        /* top: 8px; */
+        position: absolute;
+    }
+    
+</style>
+
+<body>
+    <header class="left">
+        <img src="data:image/jpeg;base64,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" alt="">
+        <h1>SAVEAYURVEDA</h1>
+    </header>
+    <div class="left">
+       
+    </div>
+    <nav>
+        <ul>
+            <li><a href="#register">Register</a></li>
+            <li><a href="#consultation">Video Consultation</a></li>
+            <li><a href="#document-sharing">Document Sharing</a></li>
+            <li><a href="#e-prescription">E-Prescription</a></li>
+            <li><a href="#ayurvedic-shop">Ayurvedic Medicine Shop</a></li>
+            <li><a href="#ayurvedic-shop">Book a Lab Test</a></li>
+        </ul>
+    </nav>
+    <main>
+        <section id="register">
+            <h2>Register</h2>
+            <form id="register-form">
+                <label for="name">Name:</label>
+                <input type="text" id="name" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" required>
+                <label for="password">Password:</label>
+                <input type="password" id="password" required>
+                <button type="submit" class="sub" >Register</button>
+            </form>
+        </section>
+        <section id="consultation">
+            <h2>Video Consultation</h2>
+            <div class="container">
+                <button class="video-consultation-btn">Video Consultation</button>
+            </div>
+            <p>This feature requires a WebRTC implementation and a signaling server.</p>
+        </section>
+        <section id="document-sharing">
+            <h2>Document Sharing</h2>
+            <div class="container">
+                <button class="video-consultation-btn">Upload document</button>
+            </div>
+
+            <p>This feature requires a file upload and sharing mechanism, possibly involving a back-end server and
+                database.</p>
+        </section>
+        <section id="e-prescription">
+            <h2>E-Prescription</h2>
+            <div class="container">
+                <button class="video-consultation-btn">Get your e-prescription</button>
+            </div>
+            <p>This feature requires a system for generating and managing electronic prescriptions, possibly involving a
+                back-end server and database.</p>
+        </section>
+        <section id="ayurvedic-shop">
+            <h2>Ayurvedic Medicine Shop</h2>
+            <div class="container">
+                <button class="video-consultation-btn">Buy medicine</button>
+            </div>
+            <p>This feature requires an e-commerce platform for selling Ayurvedic products, possibly involving a
+                back-end server, database, and payment gateway.</p>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2023 SAVE</p >
+         <p class="foot"> Email id- saveayurveda123@gmail.com
+        </p>
+        <p class="foot">
+            Contact-99776655
+        </p>
+        <p class="foot">
+            Address- 4 Community Centre, New Friends Colony, New Delhi, Delhi12.
+        
+            
+        </p>
+    </footer>
+    <script src="scripts.js"></script>
+</body>
+
+</html>
